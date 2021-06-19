@@ -1,0 +1,12 @@
+<%- include('../components/header'); -%>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">MemoColor #<%= memo.id %></div>
+        <div class="card-body <% if(memo.color!=undefined){%>color-<%=memo.color.color%>-bg<%}%>">
+            <p><%=memo.content%></p>
+        </div>
+    </div>
+</div>
+
+<%- include('../components/footer'); -%>

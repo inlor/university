@@ -1,0 +1,68 @@
+.hide{
+  display: inline-block;
+}
+
+.card{
+  height: 100vh;
+}
+
+.parson {
+  width: 350px;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.parson-items {
+  border: solid 1px #ccc;
+  min-height: 60px;
+  background: wheat;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+}
+
+.parson-item {
+  padding: 20px 10px;
+  border-bottom: solid 1px #ccc;
+  color: rgba(0, 0, 0, 0.87);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: white;
+  font-size: 14px;
+  height: 60px;
+
+  .arrow{
+    opacity: 0;
+  }
+  &:hover{
+    .arrow{
+      opacity: 1;
+    }
+  }
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.parson-item:last-child {
+  border: none;
+}
+
+.error{
+  color: red;
+}
+
+.answer{
+  color: dodgerblue;
+}

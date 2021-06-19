@@ -1,0 +1,4 @@
+def foo():
+  return True
+  return false #distractor
+  break #distractor

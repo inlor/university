@@ -1,0 +1,5 @@
+def ok();
+  a = 'ok'
+  if(a=='ok')
+    return a
+  return b #distractor

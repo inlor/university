@@ -1,0 +1,19 @@
+$white: white;
+$primary: #3f51b5;
+$red: red;
+$grey: grey;
+
+.card {
+  margin: 5%;
+  background-color: $primary;
+  color: $white;
+
+  p {
+    font-size: 18px;
+
+    code {
+      color: $red;
+      background-color: $grey;
+    }
+  }
+}

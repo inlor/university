@@ -1,0 +1,21 @@
+<%- include('../components/header'); -%>
+<div class="container">
+    <div class="card">
+        <div class="card-header">Sing in</div>
+        <div class="card-body">
+            <form method="POST" class="d-flex">
+                <input class="form-control" type="text" name="username" placeholder="username"  min="5" required>
+        
+                <input class="form-control" type="password" name="password" placeholder="password"  min="5" required >
+                
+                <input class="btn btn-primary" type="submit" value="Send">
+            </form>
+        </div>
+        <div class="card-footer">
+            <% if (locals.errors){%>
+                <div class="alert alert-danger" role="alert">Something is wrong... Try again.</div>
+            <% } %> 
+        </div>
+    </div>
+</div>
+<%- include('../components/footer'); -%>

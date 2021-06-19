@@ -1,0 +1,36 @@
+<ng-container>
+  <mat-card>
+    <mat-card-title>Your courses</mat-card-title>
+    <mat-card-subtitle *ngIf="courses.length==0">
+      You don't have any subscription yet. Please explore some content.
+    </mat-card-subtitle>
+
+    <mat-card-content>
+      <app-course-list [courses]="courses" *ngIf="courses.length!==0"></app-course-list>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-title>Your exercises</mat-card-title>
+    <mat-card-subtitle *ngIf="exercises.done.length==0 && exercises.inProgress.length==0">
+      You don't have any exercise yet. Please explore some content.
+    </mat-card-subtitle>
+
+    <mat-card-content *ngIf="exercises.done.length!=0 || exercises.inProgress.length!=0">
+      <mat-list>
+        <mat-list-item *ngFor="let exercise of exercises.inProgress">
+          <button mat-button [routerLink]="['/exercises/', exercise.id]">
+            <mat-icon>close</mat-icon>
+          </button>
+          {{exercise.title}}
+        </mat-list-item>
+
+        <mat-list-item *ngFor="let exercise of exercises.done">
+          <button mat-button [routerLink]="['/exercises/', exercise.id]">
+            <mat-icon>check</mat-icon>
+          </button>
+          {{exercise.title}}
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

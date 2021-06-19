@@ -1,0 +1,27 @@
+<ng-container>
+  <mat-card class="card">
+    <mat-card-title>Welcome</mat-card-title>
+    <mat-card-content>
+      <p>Parsons is a French online learning platform aimed at professional adults and students, developed in May 2010.
+        As
+        of Jan 2020, the platform has more than 50 million students and 57,000 instructors teaching courses in over 65
+        languages. There have been over 295 million course enrollments.</p>
+    </mat-card-content>
+    <mat-card-actions *ngIf="!login">
+      <button mat-button [routerLink]="['/register']">Register</button>
+      <button mat-button [routerLink]="['/login']">Login</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-title>How does it work ? Please read !</mat-card-title>
+    <mat-card-content>
+      <p>The platform contains 2 general usages: for teachers and for students.</p>
+      <p>Here are some of the basics you need to know in order to use our tool as teacher.</p>
+      <p>To indent your code, you need to insert 2 spaces. This means that 2 spaces == 1 indent.</p>
+      <p>Your solution need to be writen in the correct order. To use distractors, you need to add <code>#distractor</code>
+        at the end of a line.</p>
+      <p>So, now that you know how everything works, let's create something great !</p>
+    </mat-card-content>
+  </mat-card>
+</ng-container>

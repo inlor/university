@@ -1,0 +1,36 @@
+<div style="height: 100vh;">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Parsons</span>
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md>
+        <a routerLink="/" mat-button>Home</a>
+        <a routerLink="/dashboard" *ngIf="authService.isLogin" mat-button>Dashboard</a>
+        <a routerLink="/explore" *ngIf="authService.isLogin" mat-button>Explore</a>
+        <a routerLink="/register" *ngIf="!authService.isLogin" mat-button>Register</a>
+        <a routerLink="/login" *ngIf="!authService.isLogin" mat-button>Login</a>
+        <a mat-button *ngIf="authService.isLogin" (click)="authService.logout()">Logout</a>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <a routerLink="/" mat-list-item (click)="sidenav.toggle()">Home</a>
+        <a routerLink="/dashboard" mat-list-item *ngIf="authService.isLogin">Dashboard</a>
+        <a routerLink="/explore" mat-list-item *ngIf="authService.isLogin">Explore</a>
+        <a routerLink="/register" mat-list-item *ngIf="!authService.isLogin" (click)="sidenav.toggle()">Register</a>
+        <a routerLink="/login" mat-list-item *ngIf="!authService.isLogin" (click)="sidenav.toggle()">Login</a>
+        <a mat-list-item *ngIf="authService.isLogin" (click)="sidenav.toggle(); authService.logout()">Logout</a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+

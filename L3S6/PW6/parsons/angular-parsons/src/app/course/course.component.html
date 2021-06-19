@@ -1,0 +1,29 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{course.title}}</mat-card-title>
+    <mat-card-subtitle>Last update {{course.updatedAt | date}}</mat-card-subtitle>
+    <mat-card-subtitle>Authored by {{course.author.username}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{course.content}}</p>
+  </mat-card-content>
+  <mat-card-footer>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let exercise of course.exercises" class="panel">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{exercise.title}}
+            <span *ngIf="attempts[exercise.id] && exercise.id === attempts[exercise.id].exercise.id && attempts[exercise.id].solved">Yes</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="action">
+          <button mat-raised-button color="primary" [routerLink]="['/exercises/', exercise.id]">Access</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card-footer>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" *ngIf="!alreadySubscribed && display && role===roles().STUDENT" (click)="subscribe()">Subscribe</button>
+    <button mat-raised-button color="primary" *ngIf="alreadySubscribed && display && role===roles().STUDENT" (click)="unsubscribe()">Unsubscribe</button>
+  </mat-card-actions>
+</mat-card>

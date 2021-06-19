@@ -1,0 +1,80 @@
+<ng-container>
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>{{exercise.title}}</mat-card-title>
+
+      <mat-card-subtitle>
+        Last update {{exercise.updatedAt | date}}
+
+        <button mat-button (click)="hide()" class="hide">
+          <mat-icon *ngIf="description">keyboard_arrow_up</mat-icon>
+
+          <mat-icon *ngIf="!description">keyboard_arrow_down</mat-icon>
+        </button>
+      </mat-card-subtitle>
+
+    </mat-card-header>
+    <mat-card-content>
+
+      <p *ngIf="description">{{exercise.description}}</p>
+      <div cdkDropListGroup *ngIf="start!=0">
+        <div class="parson">
+          <h2>Drag from here:</h2>
+
+          <div cdkDropList [cdkDropListData]="build" cdkDropListConnectedTo="result" class="parson-items"
+               cdkDropListSortingDisabled
+               (cdkDropListDropped)="drop($event)">
+            <div class="parson-item" *ngFor="let item of build" cdkDrag>
+              {{item.content}}
+            </div>
+          </div>
+        </div>
+
+        <div class="parson">
+          <h2>Construct your solution here:</h2>
+
+          <div cdkDropList [cdkDropListData]="result" cdkDropListConnectedTo="build"
+               class="parson-items"
+               (cdkDropListDropped)="drop($event)">
+            <div class="parson-item" *ngFor="let item of result" cdkDrag [ngStyle]="{'margin-left.px': item.indent*10}">
+              {{item.content}}
+              <div>
+                <button mat-icon-button class="arrow" (click)="indentLeft(item)"
+                        [disabled]="item.indent === MIN_INDENT">
+                  <mat-icon>keyboard_arrow_left</mat-icon>
+                </button>
+
+                <button mat-icon-button class="arrow" (click)="indentRight(item)"
+                        [disabled]="item.indent === MAX_INDENT">
+                  <mat-icon>keyboard_arrow_right</mat-icon>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <div *ngIf="error.display" class="error">
+        <span *ngIf="error.size">Answer and solution differ in size.</span>
+
+        <span *ngIf="error.line">Incorrect order.</span>
+
+        <span *ngIf="error.indent">Indentation issue.</span>
+      </div>
+
+      <div *ngIf="correct"  class="answer">
+        <span>This is the right answer !</span>
+      </div>
+
+      <button mat-raised-button (click)="initParson()" *ngIf="start==0">Start</button>
+
+      <button mat-raised-button (click)="reset()" *ngIf="start!=0">Reset</button>
+
+      <button mat-raised-button color="primary" (click)="feedback()" *ngIf="start!=0">Feedback</button>
+
+      <button mat-raised-button color="accent" (click)="indication()" *ngIf="start!=0">Indication</button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>

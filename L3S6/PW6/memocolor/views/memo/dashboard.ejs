@@ -1,0 +1,59 @@
+<%- include('../components/header'); -%>
+<div class="container">
+    <div class="card">
+        <div class="card-header">All MemoColors</div>
+        <% if(memos.length!=0 || share.length!=0){ %>
+          <div class="card-body">
+            <table class="table" id="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Color</th>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Updated At</th>
+                    <th scope="col">Controls</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0; i<memos.length; i++){%>
+                      <tr>
+                      <td><div class="mini-square <% if(memos[i].color!=undefined){%>color-<%=memos[i].color.color%>-bg<%}%>"></div></td>
+                        <td>Yours</td>
+                        <td><%=memos[i].content.substring(0,85)%></td>
+                        <td><%=new Date(memos[i].updated).toDateString()%></td>
+                        <td class="d-flex">
+                            <a href="<%=url('show', {id:memos[i].id})%>"><button class="btn btn-primary">Show</button></a>
+                            <a href="<%=url('edit', {id:memos[i].id})%>"><button class="btn btn-success">Edit</button></a>
+                            <form action="<%=url('delete', {id:memos[i].id})%>" method="post">
+                              <input id="delete" class="btn btn-danger" type="submit" value="Delete">
+                            </form>
+                        </td>
+                    </tr>
+                    <%}%>
+                    <% for(let i=0; i<share.length; i++){%>
+                      <tr>
+                        <td><div class="mini-square <% if(share[i].color!=undefined){%>color-<%=share[i].color.color%>-bg<%}%>"></div></td>
+                        <td>Shared</td>
+                        <td><%=share[i].content.substring(0,85)%></td>
+                        <td><%=new Date(share[i].updated).toDateString()%></td>
+                        <td class="d-flex">
+                            <% if(share[i].shares[0].rights>=1){ %>
+                              <a href="<%=url('show', {id:share[i].id})%>"><button class="btn btn-primary">Show</button></a>
+                            <% } %>
+                            <% if(share[i].shares[0].rights>=2){ %>
+                            <a href="<%=url('edit', {id:share[i].id})%>"><button class="btn btn-success">Edit</button></a>
+                            <% } %>
+                        </td>
+                    </tr>
+                    <%}%>
+                </tbody>
+              </table>
+        </div>
+        <%}else{%>
+          <div class="alert alert-warning" role="alert">
+            You don't have any MemoColors yet. <a href="<%=url('create')%>">Create one juste here.</a>
+          </div>
+        <% } %>
+    </div>
+</div>
+<%- include('../components/footer'); -%>

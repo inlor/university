@@ -1,0 +1,15 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let course of courses">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{course.title }}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="action">
+      <button mat-raised-button [routerLink]="['/courses/', course.id]">Show</button>
+      <button mat-raised-button color="primary" *ngIf="role===roles().TEACHER && course.author.id === userId"
+              [routerLink]="['/courses/', course.id, 'edit']">Edit
+      </button>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

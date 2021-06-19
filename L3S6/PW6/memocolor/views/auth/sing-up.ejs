@@ -1,0 +1,25 @@
+<%- include('../components/header'); -%>
+<div class="container">
+    <div class="card">
+        <div class="card-header">Sing up</div>
+        <div class="card-body">
+            <form method="POST" class="d-flex">
+                <input class="form-control" type="text" name="username" placeholder="username" required>
+
+                <input class="form-control" type="password" name="password" placeholder="password" required>
+
+                <input class="form-control" type="password" name="confirm_password" placeholder="confirm password" required>
+                
+                <input class="btn btn-primary" type="submit" value="Send">
+            </form>
+        </div>
+        <div class="card-footer">
+            <% if (locals.errors){%>
+                <% for(let i=0; i<errors.length; i++){ %>
+                    <div class="alert alert-danger" role="alert"><%=errors[i].msg%></div>
+                <%}%>
+            <% } %> 
+        </div>
+    </div>
+</div>
+<%- include('../components/footer'); -%>

@@ -1,0 +1,76 @@
+$white: #ffffff;
+$black: #000000;
+
+/* General code*/
+#content-div{
+    height: 650px;
+    font-weight: bold;
+    font-size: 18px; 
+}
+
+#img-bg{
+    z-index: 0;
+    position: fixed;
+}
+
+#table{
+    position: relative;
+    background-color: $white;
+}
+
+.card{
+    margin-top:20px;
+}
+
+/* Colors for the MemoColor creation or edition*/
+$colors: (
+  "red": #ff40367c,
+  "orange": #ff851b7e,
+  "yellow": #ffdd008f,
+  "green": #00ff1586,
+  "blue": #0074d97c,
+  "violet": #3d388880,
+  "black": #00000081,
+  "grey": #5b636371,
+  "white": #ececec8e
+);
+
+@each $name, $color in $colors {
+
+    .color-#{$name}-bg {
+        background-color: $color !important; 
+        @if $name == "violet" or $name == "blue" or $name == "green" or $name == "white" {
+            color: $black !important;
+        }@else{
+            color: $white !important;
+        }
+    }
+}
+
+.circle{
+    text-align: center;
+    height: 125px;
+    width: 125px;
+    border-radius: 50%;
+    margin: 15px; 
+}
+
+.circle-selected{
+    border-radius: 0%;
+}
+
+.grid-colors{ 
+    margin: 20px;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+}
+
+.mini-square{
+    height: 25px;
+    width: 25px;
+    border-color: $black;
+    border-style: solid;
+    border-width: 1px;
+}
+  

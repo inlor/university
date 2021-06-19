@@ -1,0 +1,9 @@
+<ng-container>
+  <button mat-button color="primary" [routerLink]="['/courses/new']">
+    <mat-icon>book</mat-icon>
+    Add new Course
+  </button>
+
+  <app-course-list [courses]="courses" ></app-course-list>
+
+</ng-container>

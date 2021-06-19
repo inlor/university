@@ -1,0 +1,27 @@
+{
+  "test": {
+    "username": "root",
+    "password": "",
+    "database": "pw6_memocolor",
+    "host": "127.0.0.1",
+    "port": "3306",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "define": {
+      "timestamps": false
+    }
+  },
+  
+  "development": {
+    "username": "etu21700877",
+    "password": "etu21700877",
+    "database": "etu21700877",
+    "host": "lampe",
+    "port": "3306",
+    "dialect": "mysql",
+    "operatorsAliases": false,
+    "define": {
+      "timestamps": false
+    }
+  }
+}
