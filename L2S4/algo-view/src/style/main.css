@@ -1,0 +1,7 @@
+.btn {
+  -fx-underline: true;
+}
+
+.scroll:horizontal {
+  -fx-pref-height: 20px;
+}

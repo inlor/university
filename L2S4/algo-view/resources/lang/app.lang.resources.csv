@@ -1,0 +1,48 @@
+,shutcut,en,fr
+app,,algorithm visualization,visualisation d'algorithme
+start,,start,démarrer
+pause,,pause,pause
+stop,,stop,arrêter
+stats,,statistics,statistiques
+step,b,step by step,pas à pas
+file,,_file,_fichier
+edit,,_edit,_edition
+opt,,_options,_options
+undo,z,undo,défaire
+redo,y,redo,refaire
+save,s,save...,sauvegarder...
+exit,q,exit,quitter
+comp,,number of comparison,nombre de comparaison
+memory,,memory access,acces en memoire
+time,,time of execution,temps d'execution
+sorts,,sorts,tris
+sel,,selection,sélection
+ins,,insertion,insertion
+bul,,bubble sort,bulles
+tim,,timsort,timsort
+mer,,merge,fusion
+heap,,heap,tas
+qui,,quick,rapide
+int,,introsort,introsort
+speed,,speed,vitesse
+clear,,clear,nettoyer
+random_array,,generate random data,générer des données aléatoires
+size,,size,taille
+fr,,français,français
+en,,english,english
+langage_changement,,changing the language causes the program to restart.,le changement de langue entraîne le redémarrage du programme.
+langage,,language,langue
+help,,help,aide
+dialog_lang,,choice your language,choisissez votre langue
+info_sort,,select which sort to use,sélectionner le tri à utiliser
+key,,key,clé
+value,,value,valeur
+personalization,,personalization,personnalisation
+open,o,open...,ouvrir...
+choice_column,,choice which column to use.,choisissez quelle colonne utiliser.
+info_exit,,do you want really to exit?,voulez-vous vraiment quitter l'application?
+info_warning_max_value,,the file is too large,le fichier est trop volumineux.
+warning,,warning!,attention!
+stats,,statistics,statistiques
+mc,,µs,µs
+best,,best sort, meilleur tri
